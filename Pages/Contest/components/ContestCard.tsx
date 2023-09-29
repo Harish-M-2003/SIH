@@ -12,8 +12,8 @@ import {DATA} from "../../../data/data";
 export default function ContestCard(props){
     return (
         <View style={styles.container}>
-            <Text style={{fontWeight : "bold"}}>{props.title}</Text>
-            <Text style={{marginVertical : "4%"}}>{props.content}</Text>
+            <Text style={{fontWeight : "bold" , color : (props.isDark) ? "white" : "black"}}>{props.title}</Text>
+            <Text style={{marginVertical : "4%" , color : (props.isDark) ? "white" : "black"}}>{props.content}</Text>
             <View style={{
                 flexDirection : 'row' ,
                 justifyContent : "space-between",
@@ -21,12 +21,12 @@ export default function ContestCard(props){
             }}>
                 <View style={{flexDirection : "row" , marginRight : "5%"}}>
                     <View style={{flexDirection : "row" , alignItems  : "center"}}>
-                        <Entypo name="dot-single" size={24} color="black" />
-                        <Text>{props.date} days</Text>
+                        <Entypo name="dot-single" size={24} color={(props.isDark)?"white" : "black"} />
+                        <Text style={{color : (props.isDark) ? "white" : "black"}}>{props.date} days</Text>
                     </View>
                     <View style={{flexDirection : "row" , alignItems  : "center"}}>
-                        <Entypo name="dot-single" size={24} color="black" />
-                        <Text>{props.registered} Registered</Text>
+                    <Entypo name="dot-single" size={24} color={(props.isDark)?"white" : "black"} />
+                        <Text style={{color : (props.isDark) ? "white" : "black"}}>{props.registered} Registered</Text>
                     </View>
                 </View>
                
@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
     container : {
         borderRadius : 5,
         padding : "5%",
-        backgroundColor : 'rgba(221, 190, 237 , 0.2)',
+        backgroundColor : 'rgba(221, 190, 237 , 0.125)',
         marginVertical : '2.5%',
     },
 
     button : {
         borderColor : "purple" ,
-        borderWidth : 1,
+        // borderWidth : 1,
         padding : "4%",
         borderRadius : 5,
         backgroundColor : "rgba(107, 28, 176,1)",
