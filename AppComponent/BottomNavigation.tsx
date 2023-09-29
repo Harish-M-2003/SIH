@@ -6,19 +6,21 @@ import {
 } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
+// import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function BottomNavigation({navigation}){
+
+export default function BottomNavigation({navigation , isDark}){
     return (
-        <View style={styles.container}>
+        <View style={[styles.container , {backgroundColor : (isDark)?"black" : "white"}]}>
             <TouchableOpacity>
-                <Feather name="home" size={24} color="black" />
+                <Feather name="home" size={24} color={(!isDark)?"black" : "white"} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("Contest")}>
-                <AntDesign name="plus" size={24} color="black" />
+                <MaterialCommunityIcons name="gamepad-outline" size={24} color={(!isDark)?"black" : "white"} />
             </TouchableOpacity>
-            <TouchableOpacity>
-                <MaterialIcons name="person-outline" size={29} color="black" />
+            <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                <MaterialIcons name="person-outline" size={29} color={(!isDark) ? "black" : "white"} />
             </TouchableOpacity>
         </View>
     )
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
         bottom : 0,
         left : 0,
         right : 0,
-        paddingHorizontal : "7%",
+        paddingHorizontal : "10%",
         paddingVertical : "3%",
         borderTopWidth : 1,
         borderTopColor : "rgba(0,0,0,0.1)",
